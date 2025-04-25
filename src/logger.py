@@ -15,16 +15,13 @@ LOG_FILE_PATH = os.path.join(logs_dir, LOG_FILE)
 print(f"Log directory: {logs_dir}")
 print(f"Log file path: {LOG_FILE_PATH}")
 
+# Set up logging configuration
 try:
     logging.basicConfig(
         filename=LOG_FILE_PATH,
         format="[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s",
         level=logging.INFO,
     )
-
-    if __name__ == "__main__":
-        logging.info("logging started")
-        print("Logging setup complete.")
 
 except Exception as e:
     print(f"Error setting up logging: {e}")
