@@ -7,6 +7,7 @@ from dataclasses import dataclass
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from src.exception import CustomException
 from src.logger import logging
+from src.componenets.data_transformation import DataTranformation,DataTransformationConfig
 
 @dataclass
 class DataIngestionConfig:
@@ -48,4 +49,6 @@ class DataIngestion:
 
 if __name__ == "__main__":
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data,test_data = obj.initiate_data_ingestion()
+    data_tranformation = DataTranformation()
+    data_tranformation.initiate_data_transformation(train_data,test_data)
